@@ -54,7 +54,7 @@ jobs:
   
   build-flatpak-manifest:
     name: Build manifest
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps: 
       - name: Checkout
@@ -72,7 +72,7 @@ jobs:
       
   build-ubuntu:
     name: Build Flatpak Package
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     needs: [build-flatpak-manifest]
 
     container:
@@ -261,7 +261,7 @@ jobs:
 
   release:
     needs: [build-ubuntu, build-mac, build-windows]
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Delete drafts
